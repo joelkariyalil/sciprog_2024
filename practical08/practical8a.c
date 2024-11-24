@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // Function to find GCD using an iterative approach
 int findGCDIterative(int a, int b) {
@@ -20,6 +21,11 @@ int main() {
     scanf("%d", &a);
     printf("Input b: ");
     scanf("%d", &b);
+
+    if (a<0 || b<0){
+        printf("Enter Positive Numbers");
+        exit(1);
+    }
 
     int result = findGCDIterative(a, b);
     printf("GCD of %d and %d is: %d\n", a, b, result);
