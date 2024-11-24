@@ -3,6 +3,7 @@
 
 int main() {
 
+    // Declaring Variables
     int N = 12;
     float a = 0;
     float b = 60;
@@ -13,6 +14,8 @@ int main() {
 
     printf("\n\nSum (Before Loop):\t\t%f\n", totalSum);
 
+
+    // Looping and calculating the tan values.
     for(int i=5; i<60; i=i+5)
         totalSum += 2*tan(i*M_PI/180);
 
@@ -21,6 +24,7 @@ int main() {
     totalSum *= ((bRad - a)/(2 * N));
     printf("Sum (Final Value):\t\t%f", totalSum);
 
+    // finding the absolute and the relative differences.
     float absDiff = fabs(totalSum - logf(2));
     float relDiff = fabs(1 - (totalSum/logf(2)));
 
