@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // Function to find GCD using an iterative approach
-int gcd_iterative(int a, int b) {
+int findGCDIterative(int a, int b) {
     int temp;
 
     while (b != 0) {
@@ -21,7 +21,7 @@ int main() {
     printf("Input b: ");
     scanf("%d", &b);
 
-    int result = gcd_iterative(a, b);
+    int result = findGCDIterative(a, b);
     printf("GCD of %d and %d is: %d\n", a, b, result);
 
     return 0;
