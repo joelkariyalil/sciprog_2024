@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void calculate_next_fibonacci(int *current,int *previous){
+void nextFibonacci(int *current,int *previous){
     int next = *current+*previous;
     *previous = *current;
     *current = next;
@@ -22,7 +22,7 @@ int main(){
     if (n >= 2) printf("%d ",current);
 
     for (int i = 2; i < n; i++){
-        calculate_next_fibonacci(&current,&previous);
+        nextFibonacci(&current,&previous);
         printf("%d ",current);
     }
     
