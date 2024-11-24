@@ -3,16 +3,18 @@
 #define MAX_FILE_NAME 100
 #include "magicSquareStub.h"
 
+// function which gets the total number of lines.
 int getlines(char filename[MAX_FILE_NAME]);
 
 int main(){  
-    //define our file variable
+    
+    // declare and define variables
     FILE *f;  
     char filename[MAX_FILE_NAME];
     printf("Enter file name: ");
     scanf("%s", filename);
     
-    // ##! n function which gets the number of lines
+    // 
     int n = getlines(filename);
 
     // TODO: Open the file 
@@ -24,6 +26,7 @@ int main(){
 
     // TODO: Allocating a matrix for storing the magic square
     // as an array of pointers, where each pointer is a row 
+
     int **matrix = (int **)malloc(n * sizeof(int *));
     if (matrix == NULL) {
         printf("Memory allocation failed\n");
@@ -31,6 +34,8 @@ int main(){
         return 1;
     }
 
+    // Allocating a matrix for storing the magic square
+    // as an array of pointers, where each pointer is a row 
     for (int i = 0; i < n; i++) {
         matrix[i] = (int *)malloc(n * sizeof(int));
         if (matrix[i] == NULL) {
@@ -62,7 +67,7 @@ int main(){
     }
 
     // Check if the matrix is a magic square using the function from magic_square.h
-    if (isMagicSquare(matrix, n)) {
+    if (isMagicSquare(matrix, n) == 1) {
         printf("The matrix is a magic square.\n");
     } else {
         printf("The matrix is NOT a magic square.\n");
