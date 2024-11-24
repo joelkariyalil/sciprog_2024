@@ -31,13 +31,14 @@ float tanCalc(int N){
 
 int main() {
 
-    // How do I make this public?
+    // Declare Variables
     float arr[12];
 
     for(int i=0;i<12;i++){
     arr[i] = 2*tan(((i+1)*5)*M_PI/180);
     }
 
+    // Using Functions to calculate the tan values.
     printf("%f", tanCalc(10));
     printf("%f", tanCalc(20));
     printf("%f", tanCalc(30));

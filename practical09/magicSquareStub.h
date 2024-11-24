@@ -10,6 +10,13 @@
 // otherwise, outputs a non-zero value
 
 bool isMagicSquare(int **square, const int n) {
+
+    // variable declarations
+
+    int mainDiagonal = 0;
+    int secondaryDiagonal = 0;
+
+
     // Eliminate the case where 'n' is negative or zero
     if (n <= 0) {
         return 0;
@@ -18,45 +25,46 @@ bool isMagicSquare(int **square, const int n) {
     int M = (n * (n * n + 1)) / 2;
 
     int i, j;
+    // TODO: Checking that every row and column add up to M
 
     for (i = 0; i < n; i++) {
         int rowSum = 0;
         for (j = 0; j < n; j++) {
             rowSum += square[i][j];
+            if (i == j) {
+                mainDiagonal += square[i][j];
+            }
+            if (i + j == n - 1) {
+                secondaryDiagonal += square[i][j];
+            }
         }
         if (rowSum != M) {
-            return false;
+            printf("Row %d does not sum to %d (row sum = %d).\n", i + 1, M, rowSum);
+            return 0;
         }
     }
 
+    // Perform column sum calculation and verification
     for (j = 0; j < n; j++) {
         int colSum = 0;
         for (i = 0; i < n; i++) {
             colSum += square[i][j];
         }
         if (colSum != M) {
-            return false;;
+            printf("Column %d does not sum to %d (column sum = %d).\n", j + 1, M, colSum);
+            return 0;
         }
     }
 
-    // Check main diagonal sum
-    int mainDiagSum = 0;
-    for (i = 0; i < n; i++) {
-        mainDiagSum += square[i][i];
-    }
-    if (mainDiagSum != M) {
-        return false;
+    // TODO: Checking that the main and secondary
+    // diagonals each add up to M
+    // If passed all checks, it is a magic square
+
+    if (mainDiagonal != M || secondaryDiagonal != M) {
+        printf("Diagonals do not sum to %d (Diagonal-Main) = %d, Diagonal-Secondary = %d).\n", M, mainDiagonal, secondaryDiagonal);
+        return 0;
     }
 
-    // Check secondary diagonal sum
-    int secDiagSum = 0;
-    for (i = 0; i < n; i++) {
-        secDiagSum += square[i][n - 1 - i];
-    }
-    if (secDiagSum != M) {
-        return 0; // Not a magic square if secondary diagonal sum is not equal to M
-    }
 
-    // If all checks are passed, it's a magic square
     return true;
 }
