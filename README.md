@@ -16,8 +16,8 @@ gcc file.c -o fileOutput.exe -lm
 ./fileOutput.exe
 ```
 
-- Replace `file.c` with the name of your source file.  
-- Replace `fileOutput.exe` with your desired output file name.  
+- Replace `file.c` with the name of the c file in the respective practical assignments.
+- Replace `fileOutput.exe` with the respective output name of the practical assignment.
 - The `-lm` flag links the math library (if used).  
 
 ---
